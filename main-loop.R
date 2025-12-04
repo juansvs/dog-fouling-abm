@@ -7,7 +7,7 @@ library(spatstat)
 
 source("functions.R") # runs the functions R file
 
-set.seed(123) # pseudo-random start
+set.seed(926328938) # pseudo-random start
 
 # ---- Input Parameters ---- 
 
@@ -174,7 +174,7 @@ for(day in 1:SIM_DAYS) {
     entry_y = entrances$y[match(entry_id, entrances$id)],
     on_lead = runif(N_daily) < on_lead_prob,
     cleanup_propensity = draw_cleanup_propensity(N_daily),
-    fouling_urge = runif(N_daily) < 0.5,  # could be parameterized; here 50% have urge
+    fouling_urge = runif(N_daily) < 0.5,  # could be parameterised - 50% have urge i this
     infected = runif(N_daily) < prop_infected
   )
   
@@ -204,7 +204,7 @@ for(day in 1:SIM_DAYS) {
     fouling_events <- fouling_events + 1
     
     # record distances for stats
-    dist_from_entrance <- sqrt((fx - d$entry_x)^2 + (fy - d$entry_y)^2)
+    dist_from_entrance <- sqrt((fx - d$entry_x)^2 + (fy - d$entry_y)^2) # straight line distance from entrance to fouling location
     dist_from_path <- dist_to_path[fx, fy]
     dist_from_entrance_list <- c(dist_from_entrance_list, dist_from_entrance)
     dist_from_path_list <- c(dist_from_path_list, dist_from_path)
